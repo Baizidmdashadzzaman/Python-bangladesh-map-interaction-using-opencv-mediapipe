@@ -4,12 +4,8 @@ import cvzone
 import numpy as np
 from cvzone.HandTrackingModule import HandDetector
 
-######################################
-cam_id = 0
-width, height = 500,700
 map_file_path = "../Data/map.p"
 division_file_path = "../Data/division.p"
-######################################
 
 file_obj = open(map_file_path, 'rb')
 map_points = pickle.load(file_obj)
@@ -26,10 +22,10 @@ else:
     polygons = []
 
 # Open a connection to the webcam
-cap = cv2.VideoCapture(cam_id)  # For Webcam
+cap = cv2.VideoCapture(0)  # For Webcam
 # Set the width and height of the webcam frame
-cap.set(3, width)
-# cap.set(4, height)
+cap.set(3, 500)
+# cap.set(4, 700)
 # Counter to keep track of how many polygons have been created
 counter = 0
 # Initialize the HandDetector class with the given parameters
@@ -202,12 +198,11 @@ def create_overlay_image(polygons, warped_point, imgOverlay):
 
 
 while True:
-    # Read a frame from the webcam
+
     success, img = cap.read()
     imgWarped, matrix = warp_image(img, map_points)
     imgOutput = img.copy()
 
-    # Find the hand and its landmarks
     warped_point = get_finger_location(img, imgWarped)
 
     h, w, _ = imgWarped.shape
@@ -217,11 +212,6 @@ while True:
         imgOverlay = create_overlay_image(polygons, warped_point, imgOverlay)
         imgOutput = inverse_warp_image(img, imgOverlay, map_points)
 
-    # imgStacked = cvzone.stackImages([img, imgWarped,imgOutput,imgOverlay], 2, 0.3)
-    # cv2.imshow("Stacked Image", imgStacked)
-
-    # cv2.imshow("Original Image", img)
-    # cv2.imshow("Warped Image", imgWarped)
     cv2.imshow("Output Image", imgOutput)
 
     key = cv2.waitKey(1)
