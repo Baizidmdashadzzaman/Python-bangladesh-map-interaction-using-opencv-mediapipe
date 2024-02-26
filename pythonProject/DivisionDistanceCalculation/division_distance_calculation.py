@@ -39,10 +39,58 @@ detector = HandDetector(staticMode=False,
                         detectionCon=0.5,
                         minTrackCon=0.5)
 
+# division_distance_list = [
+#     # Rangpur,Mymensignh,Sylhet,Rajshahi,Dhaka,Comilla,Kulna,Chittagong,Barishal
+#     ["Dhaka", "Chittagong", "252.1 km"],["Chittagong","Dhaka", "252.1 km"]
+# ]
+
 division_distance_list = [
     # Rangpur,Mymensignh,Sylhet,Rajshahi,Dhaka,Comilla,Kulna,Chittagong,Barishal
-    ["Dhaka", "Chittagong", "252.1 km"],["Chittagong","Dhaka", "252.1 km"]
+    ["Rangpur", "Mymensignh", 235.7], ["Mymensignh", "Rangpur", 235.7],
+    ["Rangpur", "Sylhet", 344.5], ["Sylhet", "Rangpur", 344.5],
+    ["Rangpur", "Rajshahi", 217.2], ["Rajshahi", "Rangpur", 217.2],
+    ["Rangpur", "Dhaka", 326.4], ["Dhaka", "Rangpur", 326.4],
+    ["Rangpur", "Comilla", 461.9], ["Comilla", "Rangpur", 461.9],
+    ["Rangpur", "Kulna", 490.3], ["Kulna", "Rangpur", 490.3],
+    ["Rangpur", "Chittagong", 567.8], ["Chittagong", "Rangpur", 567.8],
+    ["Rangpur", "Barishal", 580.6], ["Barishal", "Rangpur", 580.6],
+    
+    ["Mymensignh", "Sylhet", 109.2], ["Sylhet", "Mymensignh", 109.2],
+    ["Mymensignh", "Rajshahi", 341.4], ["Rajshahi", "Mymensignh", 341.4],
+    ["Mymensignh", "Dhaka", 257.4], ["Dhaka", "Mymensignh", 257.4],
+    ["Mymensignh", "Comilla", 310.6], ["Comilla", "Mymensignh", 310.6],
+    ["Mymensignh", "Kulna", 339.2], ["Kulna", "Mymensignh", 339.2],
+    ["Mymensignh", "Chittagong", 399.6], ["Chittagong", "Mymensignh", 399.6],
+    ["Mymensignh", "Barishal", 412.5], ["Barishal", "Mymensignh", 412.5],
+    
+    ["Sylhet", "Rajshahi", 445.8], ["Rajshahi", "Sylhet", 445.8],
+    ["Sylhet", "Dhaka", 239.1], ["Dhaka", "Sylhet", 239.1],
+    ["Sylhet", "Comilla", 177.3], ["Comilla", "Sylhet", 177.3],
+    ["Sylhet", "Kulna", 295.9], ["Kulna", "Sylhet", 295.9],
+    ["Sylhet", "Chittagong", 304.4], ["Chittagong", "Sylhet", 304.4],
+    ["Sylhet", "Barishal", 349.5], ["Barishal", "Sylhet", 349.5],
+    
+    ["Rajshahi", "Dhaka", 242.2], ["Dhaka", "Rajshahi", 242.2],
+    ["Rajshahi", "Comilla", 464.2], ["Comilla", "Rajshahi", 464.2],
+    ["Rajshahi", "Kulna", 228.1], ["Kulna", "Rajshahi", 228.1],
+    ["Rajshahi", "Chittagong", 500.6], ["Chittagong", "Rajshahi", 500.6],
+    ["Rajshahi", "Barishal", 513.5], ["Barishal", "Rajshahi", 513.5],
+    
+    ["Dhaka", "Comilla", 97.9], ["Comilla", "Dhaka", 97.9],
+    ["Dhaka", "Kulna", 225.6], ["Kulna", "Dhaka", 225.6],
+    ["Dhaka", "Chittagong", 252.1], ["Chittagong", "Dhaka", 252.1],
+    ["Dhaka", "Barishal", 272.2], ["Barishal", "Dhaka", 272.2],
+    
+    ["Comilla", "Kulna", 130.1], ["Kulna", "Comilla", 130.1],
+    ["Comilla", "Chittagong", 155.1], ["Chittagong", "Comilla", 155.1],
+    ["Comilla", "Barishal", 86.1], ["Barishal", "Comilla", 86.1],
+    
+    ["Kulna", "Chittagong", 246.1], ["Chittagong", "Kulna", 246.1],
+    ["Kulna", "Barishal", 211.9], ["Barishal", "Kulna", 211.9],
+    
+    ["Chittagong", "Barishal", 210.2], ["Barishal", "Chittagong", 210.2],
 ]
+
 
 
 def warp_image(img, points, size=[500, 700]):
